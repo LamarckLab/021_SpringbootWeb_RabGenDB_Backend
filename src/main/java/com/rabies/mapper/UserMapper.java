@@ -1,10 +1,7 @@
 package com.rabies.mapper;
 
 import com.rabies.pojo.User;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -31,4 +28,7 @@ public interface UserMapper {
 
     @Update("update rabies.user set password=#{password}, telephone=#{telephone}, email=#{email}, country=#{country} where username=#{username}")
     boolean modUser(User user);
+
+    @Delete("delete from rabies.user where username=#{username}")
+    boolean delUser(String username);
 }

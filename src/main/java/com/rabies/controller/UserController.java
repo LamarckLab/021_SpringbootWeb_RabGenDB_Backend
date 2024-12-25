@@ -39,6 +39,13 @@ public class UserController {
         return userService.modUser(user);
     }
 
+    // 这个接口用于实现：删除User表中的某条数据
+    @CrossOrigin
+    @GetMapping("/del")
+    public boolean delUser(String username){
+        return userService.delUser(username);
+    }
+
     // 新增分页查询方法
     @CrossOrigin  // 允许进行跨域请求
     @GetMapping("/listPage")  // 定义了一个Get请求接口
