@@ -23,4 +23,20 @@ public class UserServiceImpl implements UserService {
     public User getUserByUsername(String username) {
         return userMapper.getUserByUsername(username);
     }
+
+    @Override
+    public List<User> listByUsernameAndCountry(String username, String country) {
+        if ((username != null && !username.isEmpty()) && (country != null && !country.isEmpty())) {
+            return userMapper.findByUserNameAndCountry(username, country);
+        }
+        else if(username != null && !username.isEmpty()) {
+            return userMapper.findByUserName(username);
+        }
+        else if(country != null && !country.isEmpty()) {
+            return userMapper.findByCountry(country);
+        }
+        else{
+            return userMapper.listUsers();
+        }
+    }
 }

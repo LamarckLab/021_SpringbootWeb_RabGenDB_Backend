@@ -9,4 +9,6 @@ public interface UserService {
     List<User> listUsers();
 
     User getUserByUsername(String username);
+
+    List<User> listByUsernameAndCountry(String username, String country);
 }
