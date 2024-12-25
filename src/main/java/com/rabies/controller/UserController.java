@@ -25,6 +25,13 @@ public class UserController {
         return userService.listUsers();
     }
 
+    // 这个接口用于实现：向User表中添加数据
+    @CrossOrigin
+    @PostMapping("/save")
+    public boolean addUser(@RequestBody User user){
+        return userService.addUser(user);
+    }
+
     // 新增分页查询方法
     @CrossOrigin  // 允许进行跨域请求
     @GetMapping("/listPage")  // 定义了一个Get请求接口

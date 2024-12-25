@@ -1,6 +1,7 @@
 package com.rabies.mapper;
 
 import com.rabies.pojo.User;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -23,4 +24,7 @@ public interface UserMapper {
 
     @Select("select * from rabies.user where username like CONCAT('%', #{username}, '%') and country like CONCAT('%', #{country}, '%')")
     List<User> findByUserNameAndCountry(String username, String country);
+
+    @Insert("insert into rabies.user (username, password, telephone, email, country, role) values (#{username}, #{password}, #{telephone}, #{email} ,#{country} ,#{role})")
+    boolean addUser(User user);
 }

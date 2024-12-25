@@ -11,4 +11,6 @@ public interface UserService {
     User getUserByUsername(String username);
 
     List<User> listByUsernameAndCountry(String username, String country);
+
+    boolean addUser(User user);
 }
