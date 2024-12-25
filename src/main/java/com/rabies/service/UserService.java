@@ -13,4 +13,6 @@ public interface UserService {
     List<User> listByUsernameAndCountry(String username, String country);
 
     boolean addUser(User user);
+
+    boolean modUser(User user);
 }
