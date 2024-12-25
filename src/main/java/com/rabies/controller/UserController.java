@@ -39,6 +39,12 @@ public class UserController {
         return userService.modUser(user);
     }
 
+    @CrossOrigin
+    @PostMapping("/modAuthority")
+    public boolean modUserAuthority(@RequestBody User user){
+        return userService.modUserAuthority(user);
+    }
+
     // 这个接口用于实现：删除User表中的某条数据
     @CrossOrigin
     @GetMapping("/del")
@@ -56,12 +62,6 @@ public class UserController {
         @RequestParam(required = false) String country){
         // 启动分页功能
         PageHelper.startPage(pageNum, pageSize);
-        // 获取所有用户数据
-//        List<User> users = userService.listUsers();
-        // 查询用户列表（条件查询:name）
-//        List<User> users = userService.listByName(name);
-        // 查询用户列表（条件查询:name、age）
-//        List<User> users = userService.listByNameAndSex(name, sex);
         // 查询用户列表（条件查询:username、country）
         List<User> users = userService.listByUsernameAndCountry(username, country);
         // PageInfo是PageHelper提供的工具类，在这里用于封装users的信息

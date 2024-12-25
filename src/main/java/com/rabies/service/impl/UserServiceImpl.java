@@ -54,4 +54,9 @@ public class UserServiceImpl implements UserService {
     public boolean delUser(String username) {
         return userMapper.delUser(username);
     }
+
+    @Override
+    public boolean modUserAuthority(User user) {
+        return userMapper.modeUserAuthority(user);
+    }
 }

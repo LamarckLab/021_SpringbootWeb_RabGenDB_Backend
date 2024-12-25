@@ -31,4 +31,7 @@ public interface UserMapper {
 
     @Delete("delete from rabies.user where username=#{username}")
     boolean delUser(String username);
+
+    @Update("update rabies.user set role=#{role} where username=#{username}")
+    boolean modeUserAuthority(User user);
 }

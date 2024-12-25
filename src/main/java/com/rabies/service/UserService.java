@@ -17,4 +17,6 @@ public interface UserService {
     boolean modUser(User user);
 
     boolean delUser(String username);
+
+    boolean modUserAuthority(User user);
 }
