@@ -52,7 +52,7 @@ public class UserController {
         return userService.delUser(username);
     }
 
-    // 新增分页查询方法
+    // 分页查询方法
     @CrossOrigin  // 允许进行跨域请求
     @GetMapping("/listPage")  // 定义了一个Get请求接口
     public HashMap<String, Object> getUserList(  // 该方法的返回类型是一个HashMap，用于封装分页数据
