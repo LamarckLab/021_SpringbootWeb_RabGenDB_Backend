@@ -18,18 +18,18 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where collectionCountry like CONCAT('%', #{country}, '%')")
     List<Genome> findByCountry(String country);
 
-    @Select("select * from rabies.genome where refinedHost like CONCAT('%', #{refinedHost}, '%')")
+    @Select("select * from rabies.genome where (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%'))")
     List<Genome> findByHost(String refinedHost);
 
     @Select("select * from rabies.genome where accession = #{accession} and collectionCountry like CONCAT('%', #{country}, '%')")
     List<Genome> findByAccessionAndCountry(String accession, String country);
 
-    @Select("select * from rabies.genome where accession = #{accession} and refinedHost like CONCAT('%', #{refinedHost}, '%')")
+    @Select("select * from rabies.genome where accession = #{accession} and (refinedHost like CONCAT('%', #{refinedHost}, '%') or (rawHost like CONCAT('%', #{refinedHost}, '%')))")
     List<Genome> findByAccessionAndHost(String accession, String refinedHost);
 
-    @Select("select * from rabies.genome where collectionCountry like CONCAT('%', #{country}, '%') and refinedHost like CONCAT('%', #{refinedHost}, '%')")
+    @Select("select * from rabies.genome where collectionCountry like CONCAT('%', #{country}, '%') and (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%'))")
     List<Genome> findByCounrtyAndHost(String country, String refinedHost);
 
-    @Select("select * from rabies.genome where accession = #{accession} and collectionCountry like CONCAT('%', #{country}, '%') and refinedHost like CONCAT('%', #{refinedHost}, '%')")
+    @Select("select * from rabies.genome where accession = #{accession} and collectionCountry like CONCAT('%', #{country}, '%') and (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%'))")
     List<Genome> findByAccessionAndCountryAndHost(String accession, String country, String refinedHost);
 }
