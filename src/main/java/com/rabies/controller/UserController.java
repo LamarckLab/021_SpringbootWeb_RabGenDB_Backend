@@ -19,6 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    // 这个接口用于实现：
     @CrossOrigin
     @GetMapping("/list")
     public List<User> listUsers(){

@@ -1,5 +1,6 @@
 package com.rabies.pojo;
 
+// User实体类
 public class User {
     private Integer id;
     private String username;
@@ -9,9 +10,11 @@ public class User {
     private String country;
     private Integer role;
 
+    // User实体类无参构造方法
     public User() {
     }
 
+    // User实体类全参构造方法
     public User(Integer id, String username, String password, String telephone, String email, String country, Integer role) {
         this.id = id;
         this.username = username;
@@ -22,6 +25,7 @@ public class User {
         this.role = role;
     }
 
+    // User实体类的get set方法
     public Integer getId() {
         return id;
     }
@@ -78,6 +82,7 @@ public class User {
         this.role = role;
     }
 
+    // User实体类的toString方法
     @Override
     public String toString() {
         return "User{" +
