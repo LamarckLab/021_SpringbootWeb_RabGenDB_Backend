@@ -31,6 +31,13 @@ public class GenomeController {
         return genomeService.modSequence(genome);
     }
 
+    // 这个接口用于实现：删除Genome表中的某条数据
+    @CrossOrigin
+    @GetMapping("/delSequence")
+    public boolean delSequence(String accession){
+        return genomeService.delSequence(accession);
+    }
+
     // 分页查询方法
     @CrossOrigin  // 允许进行跨域请求
     @GetMapping("/listGenomePage")  // 定义了一个Get请求接口

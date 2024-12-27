@@ -51,4 +51,9 @@ public class GenomeServiceImpl implements GenomeService {
     public boolean modSequence(Genome genome) {
         return genomeMapper.modSequence(genome);
     }
+
+    @Override
+    public boolean delSequence(String accession) {
+        return genomeMapper.delSequence(accession);
+    }
 }

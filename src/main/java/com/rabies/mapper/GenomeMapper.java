@@ -1,10 +1,7 @@
 package com.rabies.mapper;
 
 import com.rabies.pojo.Genome;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 
@@ -40,4 +37,7 @@ public interface GenomeMapper {
 
     @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost} where accession=#{accession}")
     boolean modSequence(Genome genome);
+
+    @Delete("delete from rabies.genome where accession=#{accession}")
+    boolean delSequence(String accession);
 }

@@ -11,4 +11,6 @@ public interface GenomeService {
     boolean addSequence(Genome genome);
 
     boolean modSequence(Genome genome);
+
+    boolean delSequence(String accession);
 }
