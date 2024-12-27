@@ -19,34 +19,40 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    // 这个接口用于实现：
+    /* 这个接口用于实现：将User表中的条目全部列出来
+    传入参数：无
+    传出参数：User集合
+     */
     @CrossOrigin
     @GetMapping("/list")
     public List<User> listUsers(){
         return userService.listUsers();
     }
 
-    // 这个接口用于实现：向User表中添加数据
+    /* 这个接口用于实现：向User表中添加一个用户
+    传入参数：请求体中的User信息：
+     */
     @CrossOrigin
     @PostMapping("/save")
     public boolean addUser(@RequestBody User user){
         return userService.addUser(user);
     }
 
-    // 这个接口用于实现：修改User表中某条数据
+    // 这个接口用于实现：修改User表中某个用户的信息
     @CrossOrigin
     @PostMapping("/mod")
     public boolean modUser(@RequestBody User user){
         return userService.modUser(user);
     }
 
+    // 这个接口用于实现：修改User表中某个用户的role值
     @CrossOrigin
     @PostMapping("/modAuthority")
     public boolean modUserAuthority(@RequestBody User user){
         return userService.modUserAuthority(user);
     }
 
-    // 这个接口用于实现：删除User表中的某条数据
+    // 这个接口用于实现：删除User表中的某个用户
     @CrossOrigin
     @GetMapping("/del")
     public boolean delUser(String username){
