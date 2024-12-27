@@ -24,6 +24,13 @@ public class GenomeController {
         return genomeService.addSequence(genome);
     }
 
+    // 这个接口用于实现：修改Genome表中某条数据
+    @CrossOrigin
+    @PostMapping("/modSequence")
+    public boolean modSequence(@RequestBody Genome genome){
+        return genomeService.modSequence(genome);
+    }
+
     // 分页查询方法
     @CrossOrigin  // 允许进行跨域请求
     @GetMapping("/listGenomePage")  // 定义了一个Get请求接口

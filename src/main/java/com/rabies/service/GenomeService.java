@@ -9,4 +9,6 @@ public interface GenomeService {
     List<Genome> listByAccessionAndCountryAndHost(String accession, String country, String refinedHost);
 
     boolean addSequence(Genome genome);
+
+    boolean modSequence(Genome genome);
 }
