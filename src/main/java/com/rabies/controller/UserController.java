@@ -59,18 +59,24 @@ public class UserController {
         return userService.modUserAuthority(user);
     }
 
-    // 这个接口用于实现：删除User表中的某个用户
+    /* 这个接口用于实现：删除User表中的某个用户
+    传入参数：username
+    传出参数：布尔值
+     */
     @CrossOrigin
     @GetMapping("/del")
     public boolean delUser(String username){
         return userService.delUser(username);
     }
 
-    // 分页查询方法
+    /* 这个接口用于实现：User表的分页查询
+    传入参数：前端传过来的 pageNum, pageSize, username, country
+    传出参数：一个HashMap, 里面包含两组键值对, data和total
+     */
     @CrossOrigin  // 允许进行跨域请求
     @GetMapping("/listPage")  // 定义了一个Get请求接口
     public HashMap<String, Object> getUserList(  // 该方法的返回类型是一个HashMap，用于封装分页数据
-        @RequestParam(defaultValue = "1") int pageNum,  // pageNum的默认值是1  pageSize的默认值是5
+        @RequestParam(defaultValue = "1") int pageNum,
         @RequestParam(defaultValue = "5") int pageSize,
         @RequestParam(required = false) String username,
         @RequestParam(required = false) String country){
