@@ -1,6 +1,7 @@
 package com.rabies.mapper;
 
 import com.rabies.pojo.Genome;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
 
@@ -32,4 +33,7 @@ public interface GenomeMapper {
 
     @Select("select * from rabies.genome where accession = #{accession} and collectionCountry like CONCAT('%', #{country}, '%') and (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%'))")
     List<Genome> findByAccessionAndCountryAndHost(String accession, String country, String refinedHost);
+
+    @Insert("insert into rabies.genome_temp (accession, collectionCountry, collectionDate, rawHost) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost})")
+    boolean addSequence(Genome genome);
 }

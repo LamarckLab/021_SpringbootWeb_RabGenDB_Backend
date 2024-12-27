@@ -7,4 +7,6 @@ import java.util.List;
 public interface GenomeService {
 
     List<Genome> listByAccessionAndCountryAndHost(String accession, String country, String refinedHost);
+
+    boolean addSequence(Genome genome);
 }

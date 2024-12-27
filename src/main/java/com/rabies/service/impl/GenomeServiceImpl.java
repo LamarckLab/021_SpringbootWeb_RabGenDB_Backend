@@ -41,4 +41,9 @@ public class GenomeServiceImpl implements GenomeService {
             return genomeMapper.listGenomes();
         }
     }
+
+    @Override
+    public boolean addSequence(Genome genome) {
+        return genomeMapper.addSequence(genome);
+    }
 }

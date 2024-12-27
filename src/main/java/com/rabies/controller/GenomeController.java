@@ -6,10 +6,7 @@ import com.rabies.pojo.Genome;
 import com.rabies.pojo.User;
 import com.rabies.service.GenomeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -19,6 +16,13 @@ public class GenomeController {
 
     @Autowired
     private GenomeService genomeService;
+
+    // 这个接口用于实现：向Genome_temp表中添加数据
+    @CrossOrigin
+    @PostMapping("/sequenceSubmit")
+    public boolean addSequence(@RequestBody Genome genome){
+        return genomeService.addSequence(genome);
+    }
 
     // 分页查询方法
     @CrossOrigin  // 允许进行跨域请求
