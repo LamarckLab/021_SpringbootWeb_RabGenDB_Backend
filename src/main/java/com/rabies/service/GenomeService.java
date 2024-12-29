@@ -12,6 +12,9 @@ public interface GenomeService {
     // 这个接口用于实现：审核通过时修改genome表中某条序列的信息
     boolean sequenceAccept(Genome genome);
 
+    // 这个接口用于实现：审核打回时修改genome表中某条序列的信息
+    boolean sequenceReject(Genome genome);
+
     boolean delSequence(String accession);
 
     List<Genome> genomePreciseSearch(String accession);
@@ -28,5 +31,5 @@ public interface GenomeService {
 
     List<Genome> listGenomePage();
 
-    boolean sequenceReject(Genome genome);
+
 }

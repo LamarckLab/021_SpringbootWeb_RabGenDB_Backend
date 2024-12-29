@@ -27,6 +27,7 @@ public class GenomeServiceImpl implements GenomeService {
         return genomeMapper.sequenceAccept(genome);
     }
 
+    // 这个接口用于实现：审核打回时修改genome表中某条序列的信息
     @Override
     public boolean sequenceReject(Genome genome) {
         return genomeMapper.sequenceReject(genome);

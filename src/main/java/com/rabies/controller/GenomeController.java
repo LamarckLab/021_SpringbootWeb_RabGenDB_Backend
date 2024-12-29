@@ -30,7 +30,7 @@ public class GenomeController {
         return genomeService.sequenceAccept(genome);
     }
 
-    // 这个接口用于实现：修改Genome表中某条数据
+    // 这个接口用于实现：审核打回时修改genome表中某条序列的信息
     @CrossOrigin
     @PostMapping("/sequenceReject")
     public boolean sequenceReject(@RequestBody Genome genome){

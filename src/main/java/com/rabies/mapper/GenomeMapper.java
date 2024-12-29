@@ -20,6 +20,7 @@ public interface GenomeMapper {
     @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 2 where accession = #{accession}")
     boolean sequenceAccept(Genome genome);
 
+    // 这个方法用于实现：审核打回时修改genome表中某条序列的信息
     @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 0 where accession = #{accession}")
     boolean sequenceReject(Genome genome);
 
