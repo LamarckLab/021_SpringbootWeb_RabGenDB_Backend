@@ -62,4 +62,9 @@ public class GenomeServiceImpl implements GenomeService {
     public List<Genome> listGenomeTemp() {
         return genomeMapper.listGenomeTemp();
     }
+
+    @Override
+    public List<Genome> genomePreciseSearch(String accession) {
+        return genomeMapper.genomePreciseSearch(accession);
+    }
 }

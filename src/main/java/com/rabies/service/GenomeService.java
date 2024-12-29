@@ -15,4 +15,6 @@ public interface GenomeService {
     boolean delSequence(String accession);
 
     List<Genome> listGenomeTemp();
+
+    List<Genome> genomePreciseSearch(String accession);
 }
