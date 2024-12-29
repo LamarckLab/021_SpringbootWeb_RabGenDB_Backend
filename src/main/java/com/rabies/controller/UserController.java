@@ -33,10 +33,7 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    /* 这个接口用于实现：修改User表中某个用户的信息
-    传入参数：请求体中的User信息：username, password, telephone, email, country (根据username进行查询)
-    传出参数：布尔值
-     */
+    // 该接口用于实现: 更改User表中某个用户的信息
     @CrossOrigin
     @PostMapping("/mod")
     public boolean modUser(@RequestBody User user){

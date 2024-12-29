@@ -16,6 +16,10 @@ public interface UserMapper {
     @Insert("insert into rabies.user (username, password, telephone, email, country, role) values (#{username}, #{password}, #{telephone}, #{email} ,#{country} ,#{role})")
     boolean addUser(User user);
 
+    // 该方法用于实现: 更改User表中某个用户的信息
+    @Update("update rabies.user set password=#{password}, telephone=#{telephone}, email=#{email}, country=#{country} where username=#{username}")
+    boolean modUser(User user);
+
     @Select("select * from rabies.user where username=#{username}")
     User getUserByUsername(String username);
 
@@ -28,8 +32,7 @@ public interface UserMapper {
     @Select("select * from rabies.user where username like CONCAT('%', #{username}, '%') and country like CONCAT('%', #{country}, '%')")
     List<User> findByUserNameAndCountry(String username, String country);
 
-    @Update("update rabies.user set password=#{password}, telephone=#{telephone}, email=#{email}, country=#{country} where username=#{username}")
-    boolean modUser(User user);
+
 
     @Delete("delete from rabies.user where username=#{username}")
     boolean delUser(String username);

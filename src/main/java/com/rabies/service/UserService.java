@@ -12,13 +12,14 @@ public interface UserService {
     // 该接口用于实现: 向User表中添加一个用户
     boolean addUser(User user);
 
+    // 该接口用于实现: 更改User表中某个用户的信息
+    boolean modUser(User user);
+
     User getUserByUsername(String username);
 
     List<User> listByUsernameAndCountry(String username, String country);
 
 
-
-    boolean modUser(User user);
 
     boolean delUser(String username);
 
