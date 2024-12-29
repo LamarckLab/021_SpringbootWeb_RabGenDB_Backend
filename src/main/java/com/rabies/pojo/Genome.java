@@ -1,5 +1,6 @@
 package com.rabies.pojo;
 
+// 序列实体类
 public class Genome {
     private Integer id;
     private String accession;
@@ -7,19 +8,28 @@ public class Genome {
     private String collectionCountry;
     private String rawHost;
     private String refinedHost;
+    private Integer isSubmit;
+    private String username;
+    private String message;
 
+    // 无参构造方法
     public Genome() {
     }
 
-    public Genome(Integer id, String accession, String collectionDate, String collectionCountry, String rawHost, String refinedHost) {
+    // 全参构造方法
+    public Genome(Integer id, String accession, String collectionDate, String collectionCountry, String rawHost, String refinedHost, Integer isSubmit, String username, String message) {
         this.id = id;
         this.accession = accession;
         this.collectionDate = collectionDate;
         this.collectionCountry = collectionCountry;
         this.rawHost = rawHost;
         this.refinedHost = refinedHost;
+        this.isSubmit = isSubmit;
+        this.username = username;
+        this.message = message;
     }
 
+    // 全部字段的get set方法
     public Integer getId() {
         return id;
     }
@@ -68,6 +78,31 @@ public class Genome {
         this.refinedHost = refinedHost;
     }
 
+    public Integer getIsSubmit() {
+        return isSubmit;
+    }
+
+    public void setIsSubmit(Integer isSubmit) {
+        this.isSubmit = isSubmit;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    // toString方法
     @Override
     public String toString() {
         return "Genome{" +
@@ -77,6 +112,9 @@ public class Genome {
                 ", collectionCountry='" + collectionCountry + '\'' +
                 ", rawHost='" + rawHost + '\'' +
                 ", refinedHost='" + refinedHost + '\'' +
+                ", isSubmit=" + isSubmit +
+                ", username='" + username + '\'' +
+                ", message='" + message + '\'' +
                 '}';
     }
 }
