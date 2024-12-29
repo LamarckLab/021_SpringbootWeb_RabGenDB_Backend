@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface GenomeService {
 
-    boolean modSequence(Genome genome);
+    boolean sequenceAccept(Genome genome);
 
     boolean delSequence(String accession);
 

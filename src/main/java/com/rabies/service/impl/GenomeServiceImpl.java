@@ -15,8 +15,8 @@ public class GenomeServiceImpl implements GenomeService {
     private GenomeMapper genomeMapper;
 
     @Override
-    public boolean modSequence(Genome genome) {
-        return genomeMapper.modSequence(genome);
+    public boolean sequenceAccept(Genome genome) {
+        return genomeMapper.sequenceAccept(genome);
     }
 
     @Override

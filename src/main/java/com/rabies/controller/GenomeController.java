@@ -29,9 +29,9 @@ public class GenomeController {
 
     // 这个接口用于实现：修改Genome表中某条数据
     @CrossOrigin
-    @PostMapping("/modSequence")
-    public boolean modSequence(@RequestBody Genome genome){
-        return genomeService.modSequence(genome);
+    @PostMapping("/sequenceAccept")
+    public boolean sequenceAccept(@RequestBody Genome genome){
+        return genomeService.sequenceAccept(genome);
     }
 
     // 这个接口用于实现：删除Genome表中的某条数据
@@ -183,4 +183,5 @@ public class GenomeController {
         result.put("total", pageInfo.getTotal());
         return result;
     }
+
 }
