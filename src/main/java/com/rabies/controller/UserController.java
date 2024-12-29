@@ -26,7 +26,7 @@ public class UserController {
         return userService.listUsers();
     }
 
-    // 该接口用于实现:
+    // 该接口用于实现: 向User表中添加一个用户
     @CrossOrigin
     @PostMapping("/save")
     public boolean addUser(@RequestBody User user){

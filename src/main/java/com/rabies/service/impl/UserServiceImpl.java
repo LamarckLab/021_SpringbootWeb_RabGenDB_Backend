@@ -21,6 +21,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    // 该接口用于实现: 向User表中添加一个用户
+    public boolean addUser(User user) {
+        return userMapper.addUser(user);
+    }
+
+    @Override
     public User getUserByUsername(String username) {
         return userMapper.getUserByUsername(username);
     }
@@ -41,10 +47,7 @@ public class UserServiceImpl implements UserService {
         }
     }
 
-    @Override
-    public boolean addUser(User user) {
-        return userMapper.addUser(user);
-    }
+
 
     @Override
     public boolean modUser(User user) {

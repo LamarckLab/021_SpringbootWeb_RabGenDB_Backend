@@ -9,6 +9,7 @@ public interface UserService {
     // 该接口用于实现: 将User表中的所有用户全部列出来
     List<User> listUsers();
 
+    // 该接口用于实现: 向User表中添加一个用户
     boolean addUser(User user);
 
     User getUserByUsername(String username);
