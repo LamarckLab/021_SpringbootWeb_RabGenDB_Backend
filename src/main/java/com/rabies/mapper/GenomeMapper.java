@@ -15,6 +15,9 @@ public interface GenomeMapper {
     @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 2 where accession = #{accession}")
     boolean sequenceAccept(Genome genome);
 
+    @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 0 where accession = #{accession}")
+    boolean sequenceReject(Genome genome);
+
     @Delete("delete from rabies.genome where accession=#{accession}")
     boolean delSequence(String accession);
 
@@ -48,4 +51,6 @@ public interface GenomeMapper {
 
     @Select("select * from rabies.genome where isSubmit = 1")
     List<Genome> listGenomePage();
+
+
 }

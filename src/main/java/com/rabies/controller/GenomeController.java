@@ -34,6 +34,13 @@ public class GenomeController {
         return genomeService.sequenceAccept(genome);
     }
 
+    // 这个接口用于实现：修改Genome表中某条数据
+    @CrossOrigin
+    @PostMapping("/sequenceReject")
+    public boolean sequenceReject(@RequestBody Genome genome){
+        return genomeService.sequenceReject(genome);
+    }
+
     // 这个接口用于实现：删除Genome表中的某条数据
     @CrossOrigin
     @GetMapping("/delSequence")

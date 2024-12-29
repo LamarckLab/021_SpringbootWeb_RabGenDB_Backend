@@ -23,4 +23,6 @@ public interface GenomeService {
     List<Genome> acceptedApplications(String username);
 
     List<Genome> listGenomePage();
+
+    boolean sequenceReject(Genome genome);
 }

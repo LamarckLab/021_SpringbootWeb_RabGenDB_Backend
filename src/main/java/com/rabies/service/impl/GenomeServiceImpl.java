@@ -20,6 +20,11 @@ public class GenomeServiceImpl implements GenomeService {
     }
 
     @Override
+    public boolean sequenceReject(Genome genome) {
+        return genomeMapper.sequenceReject(genome);
+    }
+
+    @Override
     public boolean delSequence(String accession) {
         return genomeMapper.delSequence(accession);
     }
@@ -69,4 +74,6 @@ public class GenomeServiceImpl implements GenomeService {
     public List<Genome> listGenomePage() {
         return genomeMapper.listGenomePage();
     }
+
+
 }
