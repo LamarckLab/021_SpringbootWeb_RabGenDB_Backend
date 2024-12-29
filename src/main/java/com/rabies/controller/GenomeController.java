@@ -23,7 +23,7 @@ public class GenomeController {
         return genomeService.sequenceSave(genome);
     }
 
-    // 这个接口用于实现：修改Genome表中某条数据
+    // 这个接口用于实现：审核通过时修改genome表中某条序列的信息
     @CrossOrigin
     @PostMapping("/sequenceAccept")
     public boolean sequenceAccept(@RequestBody Genome genome){

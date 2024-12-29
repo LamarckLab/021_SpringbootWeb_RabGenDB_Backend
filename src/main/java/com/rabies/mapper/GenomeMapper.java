@@ -12,10 +12,11 @@ public interface GenomeMapper {
     @Insert("insert into rabies.genome (accession, collectionCountry, collectionDate, rawHost, username, isSubmit) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost}, #{username}, #{isSubmit})")
     boolean sequenceSave(Genome genome);
 
-    // 把genome表中查验通过的条目全部列出来
+    // 这个方法用于实现: 把genome表中查验通过的条目全部列出来
     @Select("select * from rabies.genome where isSubmit = 2")
     List<Genome> listGenomes();
 
+    // 这个方法用于实现：审核通过时修改genome表中某条序列的信息
     @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 2 where accession = #{accession}")
     boolean sequenceAccept(Genome genome);
 

@@ -9,6 +9,7 @@ public interface GenomeService {
     // 这个接口用于实现: 向genome表中增加一条序列
     boolean sequenceSave(Genome genome);
 
+    // 这个接口用于实现：审核通过时修改genome表中某条序列的信息
     boolean sequenceAccept(Genome genome);
 
     boolean delSequence(String accession);
