@@ -12,27 +12,6 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where isSubmit = 2")
     List<Genome> listGenomes();
 
-    @Select("select * from rabies.genome where accession =#{accession}")
-    List<Genome> findByAccession(String accession);
-
-    @Select("select * from rabies.genome where collectionCountry like CONCAT('%', #{country}, '%')")
-    List<Genome> findByCountry(String country);
-
-    @Select("select * from rabies.genome where (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%'))")
-    List<Genome> findByHost(String refinedHost);
-
-    @Select("select * from rabies.genome where accession = #{accession} and collectionCountry like CONCAT('%', #{country}, '%')")
-    List<Genome> findByAccessionAndCountry(String accession, String country);
-
-    @Select("select * from rabies.genome where accession = #{accession} and (refinedHost like CONCAT('%', #{refinedHost}, '%') or (rawHost like CONCAT('%', #{refinedHost}, '%')))")
-    List<Genome> findByAccessionAndHost(String accession, String refinedHost);
-
-    @Select("select * from rabies.genome where collectionCountry like CONCAT('%', #{country}, '%') and (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%'))")
-    List<Genome> findByCounrtyAndHost(String country, String refinedHost);
-
-    @Select("select * from rabies.genome where accession = #{accession} and collectionCountry like CONCAT('%', #{country}, '%') and (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%'))")
-    List<Genome> findByAccessionAndCountryAndHost(String accession, String country, String refinedHost);
-
     @Insert("insert into rabies.genome_temp (accession, collectionCountry, collectionDate, rawHost) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost})")
     boolean addSequence(Genome genome);
 
@@ -44,4 +23,16 @@ public interface GenomeMapper {
 
     @Select("select * from rabies.genome where accession = #{accession} and isSubmit = 2")
     List<Genome> genomePreciseSearch(String accession);
+
+    // 根据 Collection Country 和 Host 对正式序列进行模糊查询
+    @Select("select * from rabies.genome where collectionCountry like CONCAT('%', #{country}, '%') and (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%')) and isSubmit = 2")
+    List<Genome> listByCountryAndHost(String country, String refinedHost);
+
+    // 根据 Collection Country 对正式序列进行模糊查询
+    @Select("select * from rabies.genome where (collectionCountry like CONCAT('%', #{country}, '%')) and isSubmit = 2")
+    List<Genome> listByCountry(String country);
+
+    // 根据 Raw Host 或者 Refined Host 对正式序列进行模糊查询
+    @Select("select * from rabies.genome where (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%')) and isSubmit = 2")
+    List<Genome> listByHost(String refinedHost);
 }
