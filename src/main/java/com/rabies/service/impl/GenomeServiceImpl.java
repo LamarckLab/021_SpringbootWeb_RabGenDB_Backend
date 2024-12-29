@@ -21,19 +21,20 @@ public class GenomeServiceImpl implements GenomeService {
         return genomeMapper.sequenceSave(genome);
     }
 
-    // 这个接口用于实现：审核通过时修改genome表中某条序列的信息
     @Override
+    // 这个接口用于实现：审核通过时修改genome表中某条序列的信息
     public boolean sequenceAccept(Genome genome) {
         return genomeMapper.sequenceAccept(genome);
     }
 
-    // 这个接口用于实现：审核打回时修改genome表中某条序列的信息
     @Override
+    // 这个接口用于实现：审核打回时修改genome表中某条序列的信息
     public boolean sequenceReject(Genome genome) {
         return genomeMapper.sequenceReject(genome);
     }
 
     @Override
+    // 这个接口用于实现：删除Genome表中的某条序列
     public boolean delSequence(String accession) {
         return genomeMapper.delSequence(accession);
     }

@@ -37,7 +37,7 @@ public class GenomeController {
         return genomeService.sequenceReject(genome);
     }
 
-    // 这个接口用于实现：删除Genome表中的某条数据
+    // 这个接口用于实现：删除Genome表中的某条序列
     @CrossOrigin
     @GetMapping("/delSequence")
     public boolean delSequence(String accession){

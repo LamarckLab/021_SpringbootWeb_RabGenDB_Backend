@@ -24,6 +24,7 @@ public interface GenomeMapper {
     @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 0 where accession = #{accession}")
     boolean sequenceReject(Genome genome);
 
+    // 这个方法用于实现：删除Genome表中的某条序列
     @Delete("delete from rabies.genome where accession=#{accession}")
     boolean delSequence(String accession);
 
