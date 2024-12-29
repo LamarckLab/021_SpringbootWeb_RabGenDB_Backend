@@ -8,6 +8,7 @@ import java.util.List;
 @Mapper
 public interface UserMapper {
 
+    // 该方法用于实现: 将User表中的所有用户全部列出来
     @Select("select * from rabies.user")
     List<User> listUsers();
 

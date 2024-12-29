@@ -19,20 +19,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    /* 这个接口用于实现：将User表中的条目全部列出来
-    传入参数：无
-    传出参数：User集合
-     */
+    // 该接口用于实现: 将User表中的所有用户全部列出来
     @CrossOrigin
     @GetMapping("/list")
     public List<User> listUsers(){
         return userService.listUsers();
     }
 
-    /* 这个接口用于实现：向User表中添加一个用户
-    传入参数：请求体中的User信息：username, password, telephone, email, country, role
-    传出参数：布尔值
-     */
+    // 该接口用于实现:
     @CrossOrigin
     @PostMapping("/save")
     public boolean addUser(@RequestBody User user){

@@ -6,13 +6,16 @@ import java.util.List;
 
 public interface UserService {
 
+    // 该接口用于实现: 将User表中的所有用户全部列出来
     List<User> listUsers();
+
+    boolean addUser(User user);
 
     User getUserByUsername(String username);
 
     List<User> listByUsernameAndCountry(String username, String country);
 
-    boolean addUser(User user);
+
 
     boolean modUser(User user);
 

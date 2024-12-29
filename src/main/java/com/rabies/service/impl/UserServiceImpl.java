@@ -15,6 +15,7 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
+    // 该接口用于实现: 将User表中的所有用户全部列出来
     public List<User> listUsers() {
         return userMapper.listUsers();
     }
