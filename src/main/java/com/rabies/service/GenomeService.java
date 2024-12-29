@@ -19,4 +19,6 @@ public interface GenomeService {
     List<Genome> waitingForCheck(String username);
 
     List<Genome> rejectedApplications(String username);
+
+    List<Genome> acceptedApplications(String username);
 }

@@ -59,4 +59,9 @@ public class GenomeServiceImpl implements GenomeService {
     public List<Genome> rejectedApplications(String username) {
         return genomeMapper.rejectedApplications(username);
     }
+
+    @Override
+    public List<Genome> acceptedApplications(String username) {
+        return genomeMapper.acceptedApplications(username);
+    }
 }
