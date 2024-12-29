@@ -20,9 +20,13 @@ public interface UserMapper {
     @Update("update rabies.user set password=#{password}, telephone=#{telephone}, email=#{email}, country=#{country} where username=#{username}")
     boolean modUser(User user);
 
-    // 该接口用于实现: 删除User表中的某个用户的信息
+    // 该方法用于实现: 删除User表中的某个用户
     @Delete("delete from rabies.user where username=#{username}")
     boolean delUser(String username);
+
+    // 该方法用于实现: 修改User表中某个用户的权限(role)
+    @Update("update rabies.user set role=#{role} where username=#{username}")
+    boolean modeUserAuthority(User user);
 
     @Select("select * from rabies.user where username=#{username}")
     User getUserByUsername(String username);
@@ -40,6 +44,5 @@ public interface UserMapper {
 
 
 
-    @Update("update rabies.user set role=#{role} where username=#{username}")
-    boolean modeUserAuthority(User user);
+
 }

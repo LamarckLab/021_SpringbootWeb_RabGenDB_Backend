@@ -15,8 +15,11 @@ public interface UserService {
     // 该接口用于实现: 更改User表中某个用户的信息
     boolean modUser(User user);
 
-    // 该接口用于实现: 删除User表中的某个用户的信息
+    // 该接口用于实现: 删除User表中的某个用户
     boolean delUser(String username);
+
+    // 该接口用于实现: 修改User表中某个用户的权限(role)
+    boolean modUserAuthority(User user);
 
     User getUserByUsername(String username);
 
@@ -26,5 +29,5 @@ public interface UserService {
 
 
 
-    boolean modUserAuthority(User user);
+
 }
