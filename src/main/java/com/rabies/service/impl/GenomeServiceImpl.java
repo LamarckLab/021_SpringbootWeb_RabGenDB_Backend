@@ -37,6 +37,7 @@ public class GenomeServiceImpl implements GenomeService {
         else if((refinedHost != null && !refinedHost.isEmpty())){
             return genomeMapper.findByHost(refinedHost);
         }
+        // 三个查询参数都是空, 调用GenomeMapper中的listGenomes方法
         else{
             return genomeMapper.listGenomes();
         }

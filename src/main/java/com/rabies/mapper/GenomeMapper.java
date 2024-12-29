@@ -8,7 +8,8 @@ import java.util.List;
 @Mapper
 public interface GenomeMapper {
 
-    @Select("select * from rabies.genome")
+    // 把genome表中查验通过的条目全部列出来
+    @Select("select * from rabies.genome where isSubmit = 2")
     List<Genome> listGenomes();
 
     @Select("select * from rabies.genome where accession =#{accession}")
@@ -41,6 +42,6 @@ public interface GenomeMapper {
     @Delete("delete from rabies.genome where accession=#{accession}")
     boolean delSequence(String accession);
 
-    @Select("select * from rabies.genome_temp")
-    List<Genome> listGenomeTemp();
+//    @Select("select * from rabies.genome_temp")
+//    List<Genome> listGenomeTemp();
 }
