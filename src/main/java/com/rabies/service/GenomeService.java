@@ -13,4 +13,6 @@ public interface GenomeService {
     boolean modSequence(Genome genome);
 
     boolean delSequence(String accession);
+
+    List<Genome> listGenomeTemp();
 }

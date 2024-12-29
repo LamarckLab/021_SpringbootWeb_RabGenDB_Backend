@@ -40,4 +40,7 @@ public interface GenomeMapper {
 
     @Delete("delete from rabies.genome where accession=#{accession}")
     boolean delSequence(String accession);
+
+    @Select("select * from rabies.genome_temp")
+    List<Genome> listGenomeTemp();
 }

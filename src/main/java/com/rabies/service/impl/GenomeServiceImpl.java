@@ -56,4 +56,9 @@ public class GenomeServiceImpl implements GenomeService {
     public boolean delSequence(String accession) {
         return genomeMapper.delSequence(accession);
     }
+
+    @Override
+    public List<Genome> listGenomeTemp() {
+        return genomeMapper.listGenomeTemp();
+    }
 }
