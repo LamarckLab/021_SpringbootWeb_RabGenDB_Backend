@@ -21,9 +21,12 @@ public interface UserService {
     // 该接口用于实现: 修改User表中某个用户的权限(role)
     boolean modUserAuthority(User user);
 
+    // 该接口用于实现: User表的分页查询
+    List<User> listByUsernameAndCountry(String username, String country);
+
     User getUserByUsername(String username);
 
-    List<User> listByUsernameAndCountry(String username, String country);
+
 
 
 

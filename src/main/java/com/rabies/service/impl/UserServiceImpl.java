@@ -45,26 +45,30 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByUsername(String username) {
-        return userMapper.getUserByUsername(username);
-    }
-
-    @Override
+    // 该接口用于实现: User表的分页查询
     public List<User> listByUsernameAndCountry(String username, String country) {
+        // 如果username和country都不为空
         if ((username != null && !username.isEmpty()) && (country != null && !country.isEmpty())) {
             return userMapper.findByUserNameAndCountry(username, country);
         }
+        // 如果username不为空、country为空
         else if(username != null && !username.isEmpty()) {
             return userMapper.findByUserName(username);
         }
+        // 如果username为空、country不为空
         else if(country != null && !country.isEmpty()) {
             return userMapper.findByCountry(country);
         }
+        // 如果username和country都为空
         else{
             return userMapper.listUsers();
         }
     }
 
+    @Override
+    public User getUserByUsername(String username) {
+        return userMapper.getUserByUsername(username);
+    }
 
 
 

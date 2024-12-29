@@ -28,17 +28,26 @@ public interface UserMapper {
     @Update("update rabies.user set role=#{role} where username=#{username}")
     boolean modeUserAuthority(User user);
 
-    @Select("select * from rabies.user where username=#{username}")
-    User getUserByUsername(String username);
+    // 该方法用于实现: 采用username和country进行模糊搜索
+    @Select("select * from rabies.user where username like CONCAT('%', #{username}, '%') and country like CONCAT('%', #{country}, '%')")
+    List<User> findByUserNameAndCountry(String username, String country);
 
-    @Select("select * from rabies.user where username like CONCAT('%', #{username}, '%')")
-    List<User> findByUserName(String username);
-
+    // 该方法用于实现: 采用country进行模糊搜索
     @Select("select * from rabies.user where country like CONCAT('%', #{country}, '%')")
     List<User> findByCountry(String country);
 
-    @Select("select * from rabies.user where username like CONCAT('%', #{username}, '%') and country like CONCAT('%', #{country}, '%')")
-    List<User> findByUserNameAndCountry(String username, String country);
+    // 该方法用于实现: 采用username进行模糊搜索
+    @Select("select * from rabies.user where username like CONCAT('%', #{username}, '%')")
+    List<User> findByUserName(String username);
+
+    @Select("select * from rabies.user where username=#{username}")
+    User getUserByUsername(String username);
+
+
+
+
+
+
 
 
 
