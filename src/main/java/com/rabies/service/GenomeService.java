@@ -17,4 +17,6 @@ public interface GenomeService {
     List<Genome> listGenomeTemp();
 
     List<Genome> genomePreciseSearch(String accession);
+
+    List<Genome> genomeFlexSearch(String country, String refinedHost);
 }
