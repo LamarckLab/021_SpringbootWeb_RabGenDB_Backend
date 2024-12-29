@@ -54,4 +54,9 @@ public class GenomeServiceImpl implements GenomeService {
     public List<Genome> waitingForCheck(String username) {
         return genomeMapper.waitingForCheck(username);
     }
+
+    @Override
+    public List<Genome> rejectedApplications(String username) {
+        return genomeMapper.rejectedApplications(username);
+    }
 }

@@ -37,7 +37,9 @@ public interface GenomeMapper {
     @Insert("insert into rabies.genome (accession, collectionCountry, collectionDate, rawHost, username, isSubmit) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost}, #{username}, #{isSubmit})")
     boolean sequenceSave(Genome genome);
 
-
     @Select("select * from rabies.genome where username = #{username} and isSubmit = 1")
     List<Genome> waitingForCheck(String username);
+
+    @Select("select * from rabies.genome where username = #{username} and isSubmit = 0")
+    List<Genome> rejectedApplications(String username);
 }

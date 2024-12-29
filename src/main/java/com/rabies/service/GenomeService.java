@@ -17,4 +17,6 @@ public interface GenomeService {
     boolean sequenceSave(Genome genome);
 
     List<Genome> waitingForCheck(String username);
+
+    List<Genome> rejectedApplications(String username);
 }
