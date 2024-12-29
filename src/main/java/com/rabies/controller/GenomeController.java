@@ -17,8 +17,8 @@ public class GenomeController {
     @Autowired
     private GenomeService genomeService;
 
-    /* 这个接口用于实现：向User表中添加一个用户
-    传入参数：请求体中的User信息：username, password, telephone, email, country, role
+    /* 这个接口用于实现：向Genome表中添加一个新序列
+    传入参数：请求体中的Genome信息：accession, collectionCountry, collectionDate, rawHost, username, isSubmit
     传出参数：布尔值
      */
     @CrossOrigin
