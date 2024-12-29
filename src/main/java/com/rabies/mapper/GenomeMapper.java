@@ -36,4 +36,8 @@ public interface GenomeMapper {
     // 添加待审核的序列到genome表中
     @Insert("insert into rabies.genome (accession, collectionCountry, collectionDate, rawHost, username, isSubmit) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost}, #{username}, #{isSubmit})")
     boolean sequenceSave(Genome genome);
+
+
+    @Select("select * from rabies.genome where username = #{username} and isSubmit = 1")
+    List<Genome> waitingForCheck(String username);
 }

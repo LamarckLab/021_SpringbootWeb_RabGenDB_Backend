@@ -15,4 +15,6 @@ public interface GenomeService {
     List<Genome> genomeFlexSearch(String country, String refinedHost);
 
     boolean sequenceSave(Genome genome);
+
+    List<Genome> waitingForCheck(String username);
 }

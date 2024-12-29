@@ -49,4 +49,9 @@ public class GenomeServiceImpl implements GenomeService {
     public boolean sequenceSave(Genome genome) {
         return genomeMapper.sequenceSave(genome);
     }
+
+    @Override
+    public List<Genome> waitingForCheck(String username) {
+        return genomeMapper.waitingForCheck(username);
+    }
 }
