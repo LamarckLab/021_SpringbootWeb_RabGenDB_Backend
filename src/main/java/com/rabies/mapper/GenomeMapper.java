@@ -8,6 +8,10 @@ import java.util.List;
 @Mapper
 public interface GenomeMapper {
 
+    // 这个方法用于实现: 向genome表中增加一条序列
+    @Insert("insert into rabies.genome (accession, collectionCountry, collectionDate, rawHost, username, isSubmit) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost}, #{username}, #{isSubmit})")
+    boolean sequenceSave(Genome genome);
+
     // 把genome表中查验通过的条目全部列出来
     @Select("select * from rabies.genome where isSubmit = 2")
     List<Genome> listGenomes();
@@ -36,9 +40,7 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%')) and isSubmit = 2")
     List<Genome> listByHost(String refinedHost);
 
-    // 添加待审核的序列到genome表中
-    @Insert("insert into rabies.genome (accession, collectionCountry, collectionDate, rawHost, username, isSubmit) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost}, #{username}, #{isSubmit})")
-    boolean sequenceSave(Genome genome);
+
 
     @Select("select * from rabies.genome where username = #{username} and isSubmit = 1")
     List<Genome> waitingForCheck(String username);

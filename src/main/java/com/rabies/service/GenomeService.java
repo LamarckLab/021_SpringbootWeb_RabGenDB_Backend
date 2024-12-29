@@ -6,6 +6,9 @@ import java.util.List;
 
 public interface GenomeService {
 
+    // 这个接口用于实现: 向genome表中增加一条序列
+    boolean sequenceSave(Genome genome);
+
     boolean sequenceAccept(Genome genome);
 
     boolean delSequence(String accession);
@@ -14,7 +17,7 @@ public interface GenomeService {
 
     List<Genome> genomeFlexSearch(String country, String refinedHost);
 
-    boolean sequenceSave(Genome genome);
+
 
     List<Genome> waitingForCheck(String username);
 

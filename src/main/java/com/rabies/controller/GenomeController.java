@@ -3,7 +3,6 @@ package com.rabies.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.rabies.pojo.Genome;
-import com.rabies.pojo.User;
 import com.rabies.service.GenomeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,10 +16,7 @@ public class GenomeController {
     @Autowired
     private GenomeService genomeService;
 
-    /* 这个接口用于实现：向Genome表中添加一个新序列
-    传入参数：请求体中的Genome信息：accession, collectionCountry, collectionDate, rawHost, username, isSubmit
-    传出参数：布尔值
-     */
+    // 这个接口用于实现: 向genome表中增加一条序列
     @CrossOrigin
     @PostMapping("/sequenceSave")
     public boolean sequenceSave(@RequestBody Genome genome){

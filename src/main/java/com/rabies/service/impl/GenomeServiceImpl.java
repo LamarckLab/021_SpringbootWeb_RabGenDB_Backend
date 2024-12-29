@@ -14,6 +14,13 @@ public class GenomeServiceImpl implements GenomeService {
     @Autowired
     private GenomeMapper genomeMapper;
 
+    
+    @Override
+    // 这个接口用于实现: 向genome表中增加一条序列
+    public boolean sequenceSave(Genome genome) {
+        return genomeMapper.sequenceSave(genome);
+    }
+
     @Override
     public boolean sequenceAccept(Genome genome) {
         return genomeMapper.sequenceAccept(genome);
@@ -50,10 +57,7 @@ public class GenomeServiceImpl implements GenomeService {
         }
     }
 
-    @Override
-    public boolean sequenceSave(Genome genome) {
-        return genomeMapper.sequenceSave(genome);
-    }
+
 
     @Override
     public List<Genome> waitingForCheck(String username) {
