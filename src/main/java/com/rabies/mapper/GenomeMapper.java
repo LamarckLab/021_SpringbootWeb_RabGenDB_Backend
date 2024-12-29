@@ -12,9 +12,6 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where isSubmit = 2")
     List<Genome> listGenomes();
 
-    @Insert("insert into rabies.genome_temp (accession, collectionCountry, collectionDate, rawHost) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost})")
-    boolean addSequence(Genome genome);
-
     @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost} where accession=#{accession}")
     boolean modSequence(Genome genome);
 
@@ -35,4 +32,8 @@ public interface GenomeMapper {
     // 根据 Raw Host 或者 Refined Host 对正式序列进行模糊查询
     @Select("select * from rabies.genome where (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%')) and isSubmit = 2")
     List<Genome> listByHost(String refinedHost);
+
+    // 添加待审核的序列到genome表中
+    @Insert("insert into rabies.genome (accession, collectionCountry, collectionDate, rawHost, username, isSubmit) values (#{accession}, #{collectionCountry}, #{collectionDate}, #{rawHost}, #{username}, #{isSubmit})")
+    boolean sequenceSave(Genome genome);
 }

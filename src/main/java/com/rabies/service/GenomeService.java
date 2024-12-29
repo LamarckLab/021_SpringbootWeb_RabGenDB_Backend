@@ -6,8 +6,6 @@ import java.util.List;
 
 public interface GenomeService {
 
-    boolean addSequence(Genome genome);
-
     boolean modSequence(Genome genome);
 
     boolean delSequence(String accession);
@@ -15,4 +13,6 @@ public interface GenomeService {
     List<Genome> genomePreciseSearch(String accession);
 
     List<Genome> genomeFlexSearch(String country, String refinedHost);
+
+    boolean sequenceSave(Genome genome);
 }

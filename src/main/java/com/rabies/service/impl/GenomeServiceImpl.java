@@ -14,12 +14,6 @@ public class GenomeServiceImpl implements GenomeService {
     @Autowired
     private GenomeMapper genomeMapper;
 
-
-    @Override
-    public boolean addSequence(Genome genome) {
-        return genomeMapper.addSequence(genome);
-    }
-
     @Override
     public boolean modSequence(Genome genome) {
         return genomeMapper.modSequence(genome);
@@ -49,5 +43,10 @@ public class GenomeServiceImpl implements GenomeService {
         else{
             return genomeMapper.listGenomes();
         }
+    }
+
+    @Override
+    public boolean sequenceSave(Genome genome) {
+        return genomeMapper.sequenceSave(genome);
     }
 }

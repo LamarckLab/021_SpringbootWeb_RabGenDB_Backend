@@ -17,6 +17,16 @@ public class GenomeController {
     @Autowired
     private GenomeService genomeService;
 
+    /* 这个接口用于实现：向User表中添加一个用户
+    传入参数：请求体中的User信息：username, password, telephone, email, country, role
+    传出参数：布尔值
+     */
+    @CrossOrigin
+    @PostMapping("/sequenceSave")
+    public boolean sequenceSave(@RequestBody Genome genome){
+        return genomeService.sequenceSave(genome);
+    }
+
     // 这个接口用于实现：修改Genome表中某条数据
     @CrossOrigin
     @PostMapping("/modSequence")
