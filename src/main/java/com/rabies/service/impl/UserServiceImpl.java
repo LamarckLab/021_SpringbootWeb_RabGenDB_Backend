@@ -32,6 +32,12 @@ public class UserServiceImpl implements UserService {
         return userMapper.modUser(user);
     }
 
+    // 该接口用于实现: 删除User表中的某个用户的信息
+    @Override
+    public boolean delUser(String username) {
+        return userMapper.delUser(username);
+    }
+
     @Override
     public User getUserByUsername(String username) {
         return userMapper.getUserByUsername(username);
@@ -57,10 +63,7 @@ public class UserServiceImpl implements UserService {
 
 
 
-    @Override
-    public boolean delUser(String username) {
-        return userMapper.delUser(username);
-    }
+
 
     @Override
     public boolean modUserAuthority(User user) {

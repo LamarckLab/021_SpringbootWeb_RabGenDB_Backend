@@ -40,6 +40,13 @@ public class UserController {
         return userService.modUser(user);
     }
 
+    // 该接口用于实现: 删除User表中的某个用户的信息
+    @CrossOrigin
+    @GetMapping("/del")
+    public boolean delUser(String username){
+        return userService.delUser(username);
+    }
+
     /* 这个接口用于实现：修改User表中某个用户的role值
     传入参数：请求体中的User信息：username, role
     传出参数：布尔值
@@ -50,15 +57,7 @@ public class UserController {
         return userService.modUserAuthority(user);
     }
 
-    /* 这个接口用于实现：删除User表中的某个用户
-    传入参数：username
-    传出参数：布尔值
-     */
-    @CrossOrigin
-    @GetMapping("/del")
-    public boolean delUser(String username){
-        return userService.delUser(username);
-    }
+
 
     /* 这个接口用于实现：User表的分页查询
     传入参数：前端传过来的 pageNum, pageSize, username, country
