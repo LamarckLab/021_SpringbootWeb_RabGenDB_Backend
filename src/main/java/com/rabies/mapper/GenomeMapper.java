@@ -45,4 +45,7 @@ public interface GenomeMapper {
 
     @Select("select * from rabies.genome where username = #{username} and isSubmit = 2")
     List<Genome> acceptedApplications(String username);
+
+    @Select("select * from rabies.genome where isSubmit = 1")
+    List<Genome> listGenomePage();
 }
