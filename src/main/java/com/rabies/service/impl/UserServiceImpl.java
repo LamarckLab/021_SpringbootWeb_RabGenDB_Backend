@@ -66,6 +66,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    // 该接口用于实现: 根据username得到整个user对象
     public User getUserByUsername(String username) {
         return userMapper.getUserByUsername(username);
     }

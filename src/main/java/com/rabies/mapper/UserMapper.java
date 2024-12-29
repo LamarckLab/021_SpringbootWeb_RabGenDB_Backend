@@ -40,6 +40,7 @@ public interface UserMapper {
     @Select("select * from rabies.user where username like CONCAT('%', #{username}, '%')")
     List<User> findByUserName(String username);
 
+    // 该方法用于实现: 根据username得到整个user对象
     @Select("select * from rabies.user where username=#{username}")
     User getUserByUsername(String username);
 

@@ -24,6 +24,7 @@ public interface UserService {
     // 该接口用于实现: User表的分页查询
     List<User> listByUsernameAndCountry(String username, String country);
 
+    // 该接口用于实现: 根据username得到整个user对象
     User getUserByUsername(String username);
 
 
