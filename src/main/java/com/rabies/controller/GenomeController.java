@@ -88,14 +88,11 @@ public class GenomeController {
         return result;
     }
 
-    /* 这个接口用于实现：将Gonome表中某个用户提交的新序列但并被打回的内容全部列出来
-    传入参数：username
-    传出参数：Genome集合
-     */
+    // 这个接口用于实现: 将某个用户审核通过的序列全部列出来
     @CrossOrigin  // 允许进行跨域请求
-    @GetMapping("/acceptedApplications")  // 定义了一个Get请求接口
-    public HashMap<String, Object> acceptedApplications(  // 该方法的返回类型是一个HashMap，用于封装分页数据
-        @RequestParam(defaultValue = "1") int pageNum,  // pageNum的默认值是1  pageSize的默认值是5
+    @GetMapping("/acceptedApplications")
+    public HashMap<String, Object> acceptedApplications(
+        @RequestParam(defaultValue = "1") int pageNum,
         @RequestParam(defaultValue = "5") int pageSize,
         @RequestParam(required = false) String username){
         // 启动分页功能

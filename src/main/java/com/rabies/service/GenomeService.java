@@ -24,6 +24,9 @@ public interface GenomeService {
     // 这个接口用于实现: 将某个用户被打回的序列全部列出来
     List<Genome> rejectedApplications(String username);
 
+    // 这个接口用于实现: 将某个用户审核通过的序列全部列出来
+    List<Genome> acceptedApplications(String username);
+
     List<Genome> genomePreciseSearch(String accession);
 
     List<Genome> genomeFlexSearch(String country, String refinedHost);
@@ -32,7 +35,7 @@ public interface GenomeService {
 
 
 
-    List<Genome> acceptedApplications(String username);
+
 
     List<Genome> listGenomePage();
 
