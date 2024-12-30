@@ -34,6 +34,12 @@ public class GenomeServiceImpl implements GenomeService {
     }
 
     @Override
+    // 这个接口用于实现：用户重新提交被打回的序列时, 修改genome表中某条序列的信息
+    public boolean reSubmit(Genome genome) {
+        return genomeMapper.reSubmit(genome);
+    }
+
+    @Override
     // 这个接口用于实现：删除Genome表中的某条序列
     public boolean delSequence(String accession) {
         return genomeMapper.delSequence(accession);
@@ -89,11 +95,5 @@ public class GenomeServiceImpl implements GenomeService {
     public List<Genome> listGenomePage() {
         return genomeMapper.listGenomePage();
     }
-
-    @Override
-    public boolean reSubmit(Genome genome) {
-        return genomeMapper.reSubmit(genome);
-    }
-
 
 }

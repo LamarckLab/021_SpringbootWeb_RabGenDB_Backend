@@ -15,6 +15,9 @@ public interface GenomeService {
     // 这个接口用于实现：审核打回时修改genome表中某条序列的信息
     boolean sequenceReject(Genome genome);
 
+    // 这个接口用于实现：用户重新提交被打回的序列时, 修改genome表中某条序列的信息
+    boolean reSubmit(Genome genome);
+
     // 这个接口用于实现：删除Genome表中的某条序列
     boolean delSequence(String accession);
 
@@ -36,6 +39,4 @@ public interface GenomeService {
     // 该接口用于实现: 列出所有用户的待审核序列(供管理员查看)
     List<Genome> listGenomePage();
 
-
-    boolean reSubmit(Genome genome);
 }

@@ -24,6 +24,10 @@ public interface GenomeMapper {
     @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 0 where accession = #{accession}")
     boolean sequenceReject(Genome genome);
 
+    // 这个方法用于实现：用户重新提交被打回的序列时, 修改genome表中某条序列的信息
+    @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 1 where accession = #{accession}")
+    boolean reSubmit(Genome genome);
+
     // 这个方法用于实现：删除Genome表中的某条序列
     @Delete("delete from rabies.genome where accession=#{accession}")
     boolean delSequence(String accession);
@@ -60,6 +64,4 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where isSubmit = 1")
     List<Genome> listGenomePage();
 
-    @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 1 where accession = #{accession}")
-    boolean reSubmit(Genome genome);
 }
