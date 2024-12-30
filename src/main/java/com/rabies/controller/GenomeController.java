@@ -47,8 +47,8 @@ public class GenomeController {
     // 这个接口用于实现: 将某个用户的待审核的序列全部列出来
     @CrossOrigin  // 允许进行跨域请求
     @GetMapping("/sequenceWaitingForCheck")
-    public HashMap<String, Object> waitingForCheck(  // 该方法的返回类型是一个HashMap，用于封装分页数据
-        @RequestParam(defaultValue = "1") int pageNum,  // pageNum的默认值是1  pageSize的默认值是5
+    public HashMap<String, Object> waitingForCheck(
+        @RequestParam(defaultValue = "1") int pageNum,
         @RequestParam(defaultValue = "5") int pageSize,
         @RequestParam(required = false) String username){
         // 启动分页功能
@@ -66,11 +66,11 @@ public class GenomeController {
         return result;
     }
 
-    // 这个接口用于实现: 将审核后打回的序列全部列出来
+    // 这个接口用于实现: 将某个用户被打回的序列全部列出来
     @CrossOrigin  // 允许进行跨域请求
-    @GetMapping("/rejectedApplications")  // 定义了一个Get请求接口
-    public HashMap<String, Object> rejectedApplications(  // 该方法的返回类型是一个HashMap，用于封装分页数据
-        @RequestParam(defaultValue = "1") int pageNum,  // pageNum的默认值是1  pageSize的默认值是5
+    @GetMapping("/rejectedApplications")
+    public HashMap<String, Object> rejectedApplications(
+        @RequestParam(defaultValue = "1") int pageNum,
         @RequestParam(defaultValue = "5") int pageSize,
         @RequestParam(required = false) String username){
         // 启动分页功能

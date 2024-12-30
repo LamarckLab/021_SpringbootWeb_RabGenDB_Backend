@@ -21,7 +21,7 @@ public interface GenomeService {
     // 这个接口用于实现: 将某个用户的待审核的序列全部列出来
     List<Genome> waitingForCheck(String username);
 
-    // 这个接口用于实现: 将审核后打回的序列全部列出来
+    // 这个接口用于实现: 将某个用户被打回的序列全部列出来
     List<Genome> rejectedApplications(String username);
 
     List<Genome> genomePreciseSearch(String accession);

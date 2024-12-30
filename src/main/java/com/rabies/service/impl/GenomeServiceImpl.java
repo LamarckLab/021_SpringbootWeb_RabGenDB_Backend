@@ -46,6 +46,7 @@ public class GenomeServiceImpl implements GenomeService {
     }
 
     @Override
+    // 这个接口用于实现: 将某个用户被打回的序列全部列出来
     public List<Genome> rejectedApplications(String username) {
         return genomeMapper.rejectedApplications(username);
     }

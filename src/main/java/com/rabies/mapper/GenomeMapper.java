@@ -32,6 +32,10 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where username = #{username} and isSubmit = 1")
     List<Genome> waitingForCheck(String username);
 
+    // 这个方法用于实现: 将某个用户被打回的序列全部列出来
+    @Select("select * from rabies.genome where username = #{username} and isSubmit = 0")
+    List<Genome> rejectedApplications(String username);
+
     @Select("select * from rabies.genome where accession = #{accession} and isSubmit = 2")
     List<Genome> genomePreciseSearch(String accession);
 
@@ -50,8 +54,7 @@ public interface GenomeMapper {
 
 
 
-    @Select("select * from rabies.genome where username = #{username} and isSubmit = 0")
-    List<Genome> rejectedApplications(String username);
+
 
     @Select("select * from rabies.genome where username = #{username} and isSubmit = 2")
     List<Genome> acceptedApplications(String username);
