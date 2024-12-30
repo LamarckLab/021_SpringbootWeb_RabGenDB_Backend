@@ -37,4 +37,5 @@ public interface GenomeService {
     List<Genome> listGenomePage();
 
 
+    boolean reSubmit(Genome genome);
 }

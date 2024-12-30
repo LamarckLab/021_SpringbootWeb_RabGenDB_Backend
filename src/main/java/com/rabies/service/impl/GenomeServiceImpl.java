@@ -90,5 +90,10 @@ public class GenomeServiceImpl implements GenomeService {
         return genomeMapper.listGenomePage();
     }
 
+    @Override
+    public boolean reSubmit(Genome genome) {
+        return genomeMapper.reSubmit(genome);
+    }
+
 
 }

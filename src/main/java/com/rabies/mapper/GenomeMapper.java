@@ -60,4 +60,6 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where isSubmit = 1")
     List<Genome> listGenomePage();
 
+    @Update("update rabies.genome set collectionCountry=#{collectionCountry}, collectionDate=#{collectionDate}, rawHost=#{rawHost}, refinedHost=#{refinedHost}, message = #{message}, isSubmit = 1 where accession = #{accession}")
+    boolean reSubmit(Genome genome);
 }
