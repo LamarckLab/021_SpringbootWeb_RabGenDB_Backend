@@ -18,15 +18,19 @@ public interface GenomeService {
     // 这个接口用于实现：删除Genome表中的某条序列
     boolean delSequence(String accession);
 
+    // 这个接口用于实现: 将待审核的序列全部列出来
+    List<Genome> waitingForCheck(String username);
+
+    // 这个接口用于实现: 将审核后打回的序列全部列出来
+    List<Genome> rejectedApplications(String username);
+
     List<Genome> genomePreciseSearch(String accession);
 
     List<Genome> genomeFlexSearch(String country, String refinedHost);
 
 
 
-    List<Genome> waitingForCheck(String username);
 
-    List<Genome> rejectedApplications(String username);
 
     List<Genome> acceptedApplications(String username);
 

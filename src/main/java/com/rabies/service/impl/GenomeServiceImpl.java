@@ -40,6 +40,17 @@ public class GenomeServiceImpl implements GenomeService {
     }
 
     @Override
+    // 这个接口用于实现: 将待审核的序列全部列出来
+    public List<Genome> waitingForCheck(String username) {
+        return genomeMapper.waitingForCheck(username);
+    }
+
+    @Override
+    public List<Genome> rejectedApplications(String username) {
+        return genomeMapper.rejectedApplications(username);
+    }
+
+    @Override
     public List<Genome> genomePreciseSearch(String accession) {
         return genomeMapper.genomePreciseSearch(accession);
     }
@@ -62,15 +73,9 @@ public class GenomeServiceImpl implements GenomeService {
 
 
 
-    @Override
-    public List<Genome> waitingForCheck(String username) {
-        return genomeMapper.waitingForCheck(username);
-    }
 
-    @Override
-    public List<Genome> rejectedApplications(String username) {
-        return genomeMapper.rejectedApplications(username);
-    }
+
+
 
     @Override
     public List<Genome> acceptedApplications(String username) {
