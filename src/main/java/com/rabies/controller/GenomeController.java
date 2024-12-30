@@ -155,11 +155,11 @@ public class GenomeController {
         return result;
     }
 
-    // 列出所有待审核的序列
+    // 该接口用于实现: 列出所有用户的待审核序列(供管理员查看)
     @CrossOrigin  // 允许进行跨域请求
-    @GetMapping("/listGenomePage")  // 定义了一个Get请求接口
-    public HashMap<String, Object> listGenomePage(  // 该方法的返回类型是一个HashMap，用于封装分页数据
-        @RequestParam(defaultValue = "1") int pageNum,  // pageNum的默认值是1  pageSize的默认值是5
+    @GetMapping("/listGenomePage")
+    public HashMap<String, Object> listGenomePage(
+        @RequestParam(defaultValue = "1") int pageNum,
         @RequestParam(defaultValue = "5") int pageSize){
         // 启动分页功能
         PageHelper.startPage(pageNum, pageSize);

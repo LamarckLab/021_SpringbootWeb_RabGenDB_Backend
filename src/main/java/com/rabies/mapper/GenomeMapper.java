@@ -56,15 +56,8 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%')) and isSubmit = 2")
     List<Genome> listByHost(String refinedHost);
 
-
-
-
-
-
-
-
+    // 该方法用于实现: 列出所有用户的待审核序列(供管理员查看)
     @Select("select * from rabies.genome where isSubmit = 1")
     List<Genome> listGenomePage();
-
 
 }

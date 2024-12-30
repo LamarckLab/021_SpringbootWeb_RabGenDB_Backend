@@ -33,12 +33,7 @@ public interface GenomeService {
     // 这个接口用于实现: 使用country和refinedHost进行模糊分页查询(已通过审核)
     List<Genome> genomeFlexSearch(String country, String refinedHost);
 
-
-
-
-
-
-
+    // 该接口用于实现: 列出所有用户的待审核序列(供管理员查看)
     List<Genome> listGenomePage();
 
 

@@ -84,15 +84,8 @@ public class GenomeServiceImpl implements GenomeService {
         }
     }
 
-
-
-
-
-
-
-
-
     @Override
+    // 该接口用于实现: 列出所有用户的待审核序列(供管理员查看)
     public List<Genome> listGenomePage() {
         return genomeMapper.listGenomePage();
     }
