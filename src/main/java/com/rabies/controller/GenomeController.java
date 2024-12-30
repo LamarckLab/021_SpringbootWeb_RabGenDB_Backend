@@ -44,9 +44,9 @@ public class GenomeController {
         return genomeService.delSequence(accession);
     }
 
-    // 这个接口用于实现: 将待审核的序列全部列出来
+    // 这个接口用于实现: 将某个用户的待审核的序列全部列出来
     @CrossOrigin  // 允许进行跨域请求
-    @GetMapping("/sequenceWaitingForCheck")  // 定义了一个Get请求接口
+    @GetMapping("/sequenceWaitingForCheck")
     public HashMap<String, Object> waitingForCheck(  // 该方法的返回类型是一个HashMap，用于封装分页数据
         @RequestParam(defaultValue = "1") int pageNum,  // pageNum的默认值是1  pageSize的默认值是5
         @RequestParam(defaultValue = "5") int pageSize,

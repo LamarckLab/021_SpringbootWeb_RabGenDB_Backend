@@ -28,7 +28,7 @@ public interface GenomeMapper {
     @Delete("delete from rabies.genome where accession=#{accession}")
     boolean delSequence(String accession);
 
-    // 这个方法用于实现: 将待审核的序列全部列出来
+    // 这个方法用于实现: 将某个用户的待审核的序列全部列出来
     @Select("select * from rabies.genome where username = #{username} and isSubmit = 1")
     List<Genome> waitingForCheck(String username);
 
