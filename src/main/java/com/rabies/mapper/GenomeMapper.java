@@ -40,6 +40,7 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where username = #{username} and isSubmit = 2")
     List<Genome> acceptedApplications(String username);
 
+    // 这个接口用于实现: 使用accession进行精确分页查询(已通过审核的)
     @Select("select * from rabies.genome where accession = #{accession} and isSubmit = 2")
     List<Genome> genomePreciseSearch(String accession);
 

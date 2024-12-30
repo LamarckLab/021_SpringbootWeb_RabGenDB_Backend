@@ -58,6 +58,7 @@ public class GenomeServiceImpl implements GenomeService {
     }
 
     @Override
+    // 这个接口用于实现: 使用accession进行精确分页查询(已通过审核的)
     public List<Genome> genomePreciseSearch(String accession) {
         return genomeMapper.genomePreciseSearch(accession);
     }

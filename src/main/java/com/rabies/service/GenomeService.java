@@ -27,6 +27,7 @@ public interface GenomeService {
     // 这个接口用于实现: 将某个用户审核通过的序列全部列出来
     List<Genome> acceptedApplications(String username);
 
+    // 这个接口用于实现: 使用accession进行精确分页查询(已通过审核的)
     List<Genome> genomePreciseSearch(String accession);
 
     List<Genome> genomeFlexSearch(String country, String refinedHost);

@@ -110,12 +110,11 @@ public class GenomeController {
         return result;
     }
 
-
-    // 精确查询分页查询方法
+    // 这个接口用于实现: 使用accession进行精确分页查询(已通过审核的)
     @CrossOrigin  // 允许进行跨域请求
-    @GetMapping("/genomePreciseSearchPage")  // 定义了一个Get请求接口
-    public HashMap<String, Object> genomePreciseSearch(  // 该方法的返回类型是一个HashMap，用于封装分页数据
-        @RequestParam(defaultValue = "1") int pageNum,  // pageNum的默认值是1  pageSize的默认值是5
+    @GetMapping("/genomePreciseSearchPage")
+    public HashMap<String, Object> genomePreciseSearch(
+        @RequestParam(defaultValue = "1") int pageNum,
         @RequestParam(defaultValue = "5") int pageSize,
         @RequestParam(required = false) String accession){
         // 启动分页功能
