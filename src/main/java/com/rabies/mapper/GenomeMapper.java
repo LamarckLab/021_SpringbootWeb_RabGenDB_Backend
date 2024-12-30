@@ -44,15 +44,15 @@ public interface GenomeMapper {
     @Select("select * from rabies.genome where accession = #{accession} and isSubmit = 2")
     List<Genome> genomePreciseSearch(String accession);
 
-    // 根据 Collection Country 和 Host 对正式序列进行模糊查询
+    // 根据Collection Country和Host进行模糊查询(已审核的序列)
     @Select("select * from rabies.genome where collectionCountry like CONCAT('%', #{country}, '%') and (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%')) and isSubmit = 2")
     List<Genome> listByCountryAndHost(String country, String refinedHost);
 
-    // 根据 Collection Country 对正式序列进行模糊查询
+    // 根据Collection Country进行模糊查询(已审核的序列)
     @Select("select * from rabies.genome where (collectionCountry like CONCAT('%', #{country}, '%')) and isSubmit = 2")
     List<Genome> listByCountry(String country);
 
-    // 根据 Raw Host 或者 Refined Host 对正式序列进行模糊查询
+    // 根据Raw Host或者Refined Host进行模糊查询(已审核的序列)
     @Select("select * from rabies.genome where (refinedHost like CONCAT('%', #{refinedHost}, '%') or rawHost like CONCAT('%', #{refinedHost}, '%')) and isSubmit = 2")
     List<Genome> listByHost(String refinedHost);
 

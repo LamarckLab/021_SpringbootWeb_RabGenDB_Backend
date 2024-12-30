@@ -64,16 +64,21 @@ public class GenomeServiceImpl implements GenomeService {
     }
 
     @Override
+    // 这个接口用于实现: 使用country和refinedHost进行模糊分页查询(已通过审核)
     public List<Genome> genomeFlexSearch(String country, String refinedHost) {
+        // country和host都不为空
         if((country != null && !country.isEmpty()) && (refinedHost != null && !refinedHost.isEmpty())) {
             return genomeMapper.listByCountryAndHost(country, refinedHost);
         }
+        // country不为空、host为空
         else if(country != null && !country.isEmpty()){
             return genomeMapper.listByCountry(country);
         }
+        // country为空、host不为空
         else if(refinedHost != null && !refinedHost.isEmpty()){
             return genomeMapper.listByHost(refinedHost);
         }
+        // country和host都为空
         else{
             return genomeMapper.listGenomes();
         }

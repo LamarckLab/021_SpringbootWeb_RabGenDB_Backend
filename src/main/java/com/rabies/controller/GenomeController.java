@@ -132,11 +132,11 @@ public class GenomeController {
         return result;
     }
 
-    // 模糊查询分页查询方法
+    // 这个接口用于实现: 使用country和refinedHost进行模糊分页查询(已通过审核)
     @CrossOrigin  // 允许进行跨域请求
-    @GetMapping("/genomeFlexSearchPage")  // 定义了一个Get请求接口
-    public HashMap<String, Object> genomeFlexSearch(  // 该方法的返回类型是一个HashMap，用于封装分页数据
-        @RequestParam(defaultValue = "1") int pageNum,  // pageNum的默认值是1  pageSize的默认值是5
+    @GetMapping("/genomeFlexSearchPage")
+    public HashMap<String, Object> genomeFlexSearch(
+        @RequestParam(defaultValue = "1") int pageNum,
         @RequestParam(defaultValue = "5") int pageSize,
         @RequestParam(required = false) String country,
         @RequestParam(required = false) String refinedHost){

@@ -30,6 +30,7 @@ public interface GenomeService {
     // 这个接口用于实现: 使用accession进行精确分页查询(已通过审核的)
     List<Genome> genomePreciseSearch(String accession);
 
+    // 这个接口用于实现: 使用country和refinedHost进行模糊分页查询(已通过审核)
     List<Genome> genomeFlexSearch(String country, String refinedHost);
 
 
