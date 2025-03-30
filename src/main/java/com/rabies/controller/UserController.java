@@ -45,17 +45,17 @@ public class UserController {
     }
 
     // 该接口用于实现: 删除User表中的某个用户
-    @CrossOrigin
-    @GetMapping("/del")
-    public boolean delUser(String username){
-        return userService.delUser(username);
+    @CrossOrigin // 允许前端跨域访问
+    @GetMapping("/del") // 绑定GET请求 /del
+    public boolean delUser(String username){ // 返回的是一个布尔值, 用来表示是否修改成功
+        return userService.delUser(username); // 调用服务层中的delUser()方法
     }
 
     // 该接口用于实现: 修改User表中某个用户的权限(role)
-    @CrossOrigin
-    @PostMapping("/modAuthority")
-    public boolean modUserAuthority(@RequestBody User user){
-        return userService.modUserAuthority(user);
+    @CrossOrigin // 允许前端跨域访问
+    @PostMapping("/modAuthority") // 绑定POST请求 /modAuthority
+    public boolean modUserAuthority(@RequestBody User user){ // 返回的是一个布尔值, 用来表示是否修改成功
+        return userService.modUserAuthority(user); //调用服务层中的modUserAuthority()方法
     }
 
     // 该接口用于实现: User表的分页查询
