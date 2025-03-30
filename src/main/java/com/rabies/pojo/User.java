@@ -8,7 +8,7 @@ public class User {
     private String telephone;
     private String email;
     private String country;
-    private Integer role;
+    private Integer role;  // 0超级管理员  1管理员  2普通用户
 
     // User实体类无参构造方法
     public User() {
