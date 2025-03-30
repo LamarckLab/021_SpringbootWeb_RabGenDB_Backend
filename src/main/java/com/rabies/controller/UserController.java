@@ -24,24 +24,24 @@ public class UserController {
     private UserService userService;
 
     // 该接口用于实现: 将User表中的所有用户全部列出来
-    @CrossOrigin
-    @GetMapping("/list")
-    public List<User> listUsers(){
-        return userService.listUsers();
+    @CrossOrigin // 允许前端跨域访问
+    @GetMapping("/list") // 绑定GET请求 /list
+    public List<User> listUsers(){ // 返回的是一个用户集合
+        return userService.listUsers();  // 调用服务层中的listUser()方法
     }
 
     // 该接口用于实现: 向User表中添加一个用户
-    @CrossOrigin
-    @PostMapping("/save")
-    public boolean addUser(@RequestBody User user){
-        return userService.addUser(user);
+    @CrossOrigin // 允许前端跨域访问
+    @PostMapping("/save") // 绑定POST请求 /save
+    public boolean addUser(@RequestBody User user){ // 返回的是一个布尔值, 用来表示是否添加成功
+        return userService.addUser(user); // 调用服务层中的addUser()方法
     }
 
     // 该接口用于实现: 更改User表中某个用户的信息
-    @CrossOrigin
-    @PostMapping("/mod")
-    public boolean modUser(@RequestBody User user){
-        return userService.modUser(user);
+    @CrossOrigin // 允许前端跨域访问
+    @PostMapping("/mod") // 绑定POST请求 /mod
+    public boolean modUser(@RequestBody User user){ //返回的是一个布尔值, 用来表示是否修改成功
+        return userService.modUser(user); // 调用服务层中的modUser()方法
     }
 
     // 该接口用于实现: 删除User表中的某个用户
