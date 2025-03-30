@@ -1,19 +1,23 @@
-package com.rabies.controller;
+package com.rabies.controller; // 表示这个类属于com.rabies.controller包（命名空间）
 
-import com.fasterxml.jackson.annotation.JacksonAnnotationsInside;
+// PageHelper 和 PageInfo 是分页插件 PageHelper 的类，用于实现分页功能
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+
+// 导入自定义的 User 类（实体类）和 UserService 类（业务逻辑层）
 import com.rabies.pojo.User;
 import com.rabies.service.UserService;
+
+// Spring 框架中的注解，用于标记控制器类及其请求映射
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-
+// Java 的集合类，用于数据返回
 import java.util.HashMap;
 import java.util.List;
 
-@RestController
+@RestController // 表示这是一个控制器，返回的数据会直接作为 JSON 响应体
 public class UserController {
 
     @Autowired
